@@ -1,0 +1,41 @@
+{% load static %}
+{% block body %}
+
+<nav class="navbar navbar-expand-lg">                
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="{% url 'demo' %}">
+            <img src="{% static 'images/coffee-beans.png' %}" class="navbar-brand-image img-fluid" alt="Barista Cafe Template">
+            SchoolStore
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-lg-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'demo' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Register</a></li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Department</a>
+                  
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Bachelor_of_Science_in_Agriculture">BSc Agriculture</a></li>
+                      <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Botany">BSc Botany</a></li>
+                      <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Environmental_studies">BSc Environmental Studies</a></li>
+                      <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Computer_science">BTech Computer Science</a></li>
+                      <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Electrical_engineering">BTech EEE</a></li>
+                      <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Mechanical_engineering">BTech Mechanical</a></li>
+                      
+                    </ul>
+                  </div>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+{% include 'nav.html' %}
+
+
+<section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-lg-6 col-12 mx-auto">
+                <em class="small-text">Welcome to SchoolStore</em>
+                
+                <h1>Login</h1>
+
+                <p class="text-white mb-4 pb-lg-2">
+                    Login to your account here.
+                </p>
+
+                <div class="form">
+                    <form action="/login/" method="post">
+                        {% csrf_token %}
+                        <input class="form-control form-control-lg" type="text" name="username" placeholder="Enter your Username"><br>
+                        <input class="form-control form-control-lg" type="password" name="password" placeholder="Enter your Password"><br>
+                        <input class="btn custom-btn smoothscroll me-2 mb-2" class="btn" type="submit">
+                    </form>
+                    
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="hero-slides"></div>
+</section>
+
+{% endblock %}

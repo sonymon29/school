@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+  <div class="container py-5">
+    <h1 class="text-center mb-4">SchoolStore</h1>
+    <form action="{% url 'form' %}" method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <input type="text" class="form-control mb-3" name="{{ form.name.name }}" placeholder="NAME" value="{{ form.name.value|default:'' }}">
+        <input type="date" class="form-control mb-3" name="{{ form.dob.name }}" placeholder="DOB" value="{{ form.dob.value }}">
+        <input type="number" class="form-control mb-3" name="{{ form.age.name }}" placeholder="AGE" value="{{ form.age.value }}">
+        <select class="form-select mb-3" name="{{ form.gender.name }}" aria-label="Default select example">
+          <option selected>GENDER</option>
+          <option value="Male">MALE</option>
+          <option value="Female">FEMALE</option>
+          <option value="Other">OTHER</option>
+        </select>
+        <input type="number" class="form-control mb-3" name="{{ form.phone.name }}" placeholder="PHONE" value="{{ form.phone.value }}">
+        <input type="email" class="form-control mb-3" name="{{ form.email.name }}" placeholder="MAIL ID" value="{{ form.email.value|default:'' }}">
+        <input type="text" class="form-control mb-3" name="{{ form.address.name }}" placeholder="ADDRESS" value="{{ form.address.value|default:'' }}">
+        
+        
+
+        <br>
+        <label for="{{ form.department.auto_id }}">DEPARTMENT</label>
+        <select id="{{ form.department.auto_id }}" name="{{ form.department.html_name }}" class="form-select mb-3">
+            <optgroup label="Science">
+                <option value="BOTANY">BOTANY</option>
+                <option value="AGRICULTURE">AGRICULTURE</option>
+                <option value="PHYSICS">PHYSICS</option>
+            </optgroup>
+            <optgroup label="Commerce">
+                <option value="BCOM">BCOM</option>
+                <option value="BBA">BBA</option>
+                <option value="MCA">MCA</option>
+            </optgroup>
+            <optgroup label="Engineering">
+                <option value="COMPUTER">COMPUTER</option>
+                <option value="ELECTRICAL">ELECTRICAL</option>
+                <option value="MECHANICAL">MECHANICAL</option>
+            </optgroup>
+        </select>
+        
+        <label for="{{ form.purpose.auto_id }}">PURPOSE</label>
+        <select id="{{ form.purpose.auto_id }}" name="{{ form.purpose.html_name }}" class="form-select mb-3">
+            <option value="Place Order">Place Order</option>
+            <option value="Return Order">Return Order</option>
+            <option value="Enquiry">Enquiry</option>
+            <option value="Other">Other</option>
+        </select>
+        
+        <br>
+
+        <label>Materials:</label><br>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="{{ form.materials.auto_id }}1" name="{{ form.materials.html_name }}" value="Debt Notebook">
+          <label class="form-check-label" for="{{ form.materials.auto_id }}1"> Debt Notebook</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="{{ form.materials.auto_id }}2" name="{{ form.materials.html_name }}" value="Exam Papers">
+          <label class="form-check-label" for="{{ form.materials.auto_id }}2"> Exam Papers</label>
+        </div>
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" id="{{ form.materials.auto_id }}3" name="{{ form.materials.html_name }}" value="Pen">
+          <label class="form-check-label" for="{{ form.materials.auto_id }}3"> Pen</label>
+        </div>
+        
+        
+      
+        <input type="submit" class="btn btn-primary" value="Submit">
+        
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }} <a href="/">Go to homepage</a>
+            </div>
+        {% endfor %}
+        {% endif %}
+    
+    
+
+    
+
+    </form>
+
+
+  </div>
+{% endblock %}

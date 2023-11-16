@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+{% include 'nav.html' %}
+
+<section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+
+    <div class="container">
+        <div class="row align-items-center">
+
+            <div class="col-lg-6 col-12 mx-auto">
+                <em class="small-text">Welcome to SchoolStore</em>
+                
+                <h1>Register</h1>
+
+                <p class="text-white mb-4 pb-lg-2">
+                    Register your new account here.
+                </p>
+
+                <div class="form">
+                    <form action="/register/" method="post">
+                        {% csrf_token %}
+                        <input class="form-control form-control-lg" name="username" type="text" placeholder="Username or Email" aria-label=".form-control-lg example"><br>
+                        <input class="form-control form-control-lg" name="password" type="password" placeholder="Password" aria-label=".form-control-lg example"><br>
+                        <input class="form-control form-control-lg" name="password1" type="password" placeholder="Confirm Password" aria-label=".form-control-lg example">
+                        <br>
+                        <input class="btn custom-btn smoothscroll me-2 mb-2" type="submit">
+                    </form>
+                    
+                </div>
+    
+            </div>
+
+        </div>
+    </div>
+
+    <div class="hero-slides"></div>
+</section>
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle bg-transparent text-dark btn-sm ms-3" type="button" id="MyAccountDDM" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+    AAA
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="MyAccountDDM" id="AppDropDownId">
+    <li><a>BBB</a></li>
+    <li>
+    <div class="btn-group dropend">
+    <a type="button" class="dropdown-item dropdown-toggle p-0" data-bs-toggle="dropdown" aria-expanded="false">
+    CCC
+    </a>
+    <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">DDD</a></li>
+    <li><a class="dropdown-item" href="#">EEE</a></li>
+    </ul>
+    </div>
+    </li>
+    <li><hr class="dropdown-divider"/></li>
+    <li><a>FFF</a></li>
+    </ul>
+  </div>
+{% endblock %}
